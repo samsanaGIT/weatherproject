@@ -1,0 +1,286 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #111827;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.app-card {
+  width: min(100%, 520px);
+  padding: 32px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.app-title {
+  margin: 0 0 24px;
+  font-size: 2rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.search-button {
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.search-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.app-error {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  margin-bottom: 16px;
+}
+
+.search-history {
+  margin-bottom: 20px;
+}
+
+.search-history-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+.search-history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-history-item {
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.search-history-item:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.weather-card,
+.loading-skeleton {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.weather-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.weather-card-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.weather-card-header p {
+  margin: 6px 0 0;
+  color: #475569;
+}
+
+.weather-icon {
+  width: 72px;
+  height: 72px;
+}
+
+.weather-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.weather-temp {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.weather-temp-value {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.weather-description {
+  margin: 0;
+  color: #475569;
+  text-transform: capitalize;
+}
+
+.weather-details p {
+  margin: 0 0 10px;
+  color: #334155;
+}
+
+.forecast-section {
+  margin-top: 24px;
+}
+
+.forecast-title {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.forecast-card {
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.forecast-day {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.forecast-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.forecast-values {
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.forecast-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.loading-line {
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e2e8f0 25%, #f8fafc 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite ease-in-out;
+  margin-bottom: 16px;
+}
+
+.loading-title {
+  width: 45%;
+  height: 20px;
+}
+
+.loading-short {
+  width: 65%;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-card {
+    padding: 24px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .weather-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
